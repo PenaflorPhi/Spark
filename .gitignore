@@ -210,3 +210,4 @@ __marimo__/
 metastore_db/
 output/
 spark-warehouse/
+datasets/sf-fire-calls.csv
