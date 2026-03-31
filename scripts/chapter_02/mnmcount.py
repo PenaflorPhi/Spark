@@ -7,13 +7,13 @@ from pyspark.sql.functions import sum as spark_sum
 def _find_dataset(filename: str = "mnm_dataset.csv") -> str:
     current = Path(__file__).resolve().parent
     while current != current.parent:
-        if (current / "data").is_dir():
-            matches = list((current / "data").rglob(filename))
+        if (current / "datasets").is_dir():
+            matches = list((current / "datasets").rglob(filename))
             if matches:
                 return str(matches[0])
         current = current.parent
     raise FileNotFoundError(
-        f"{filename} not found in any 'data/' directory above {Path(__file__)}"
+        f"{filename} not found in any 'datasets/' directory above {Path(__file__)}"
     )
 
 
