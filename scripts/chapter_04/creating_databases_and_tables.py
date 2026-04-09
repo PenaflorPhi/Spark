@@ -53,4 +53,7 @@ if __name__ == "__main__":
         """)
 
     # Creating unmanged table
-    df.write.option("path", csv_path).saveAsTable("us_delay_flights_tbl")
+    # NOTE: If we use the `csv_path` as the path it will try to overwrite
+    # the file with a directory of the same name (initial expectation)
+    # was for everything to be saved elsewhere with the name of the CSV
+    df.write.option("path", f"{csv_path}_tbl").saveAsTable("us_delay_flights_tbl")
